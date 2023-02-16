@@ -118,18 +118,3 @@ do_ipl_opt_deploy[dirs] = "${B}"
 
 addtask deploy before do_build after do_compile
 addtask extra_ipl_opt after do_configure before do_compile
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-meta-renesas/arm-trusted-firmware_git.bb at Renesas-Yocto-v5.9-patched · xen-troops/meta-renesas
