@@ -1,3 +1,33 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Codespaces
+Marketplace
+Explore
+ 
+@DKlimenko 
+xen-troops
+/
+meta-renesas
+Public
+Fork your own copy of xen-troops/meta-renesas
+Code
+Pull requests
+Actions
+Projects
+Security
+Insights
+meta-renesas/meta-rcar-gen3/recipes-bsp/arm-trusted-firmware/arm-trusted-firmware_git.bb
+@hauconglevo
+hauconglevo rcar-gen3: arm-trusted-firmware: Update to latest revision
+…
+Latest commit 9d190d4 on Aug 4, 2022
+ History
+ 8 contributors
+@khangnguyenrvc@ygohda@TinTranTrung@thuyminhtran@thaophuongnguyen@hauconglevo@DuyDang007@TakamitsuHonda
+120 lines (94 sloc)  4.99 KB
+
 DESCRIPTION = "ARM Trusted Firmware"
 
 LICENSE = "BSD"
@@ -10,24 +40,17 @@ require include/multimedia-control.inc
 
 S = "${WORKDIR}/git"
 
-BRANCH = "rcar_gen3_v2.3"
-SRC_URI = "git://github.com/renesas-rcar/arm-trusted-firmware.git;branch=${BRANCH}"
-SRCREV = "7638cfbe68760358a4bbad2d12a7b1b93a02e9f5"
+BRANCH = "rcar_gen3_v2.5"
+SRC_URI = "git://github.com/renesas-rcar/arm-trusted-firmware.git;branch=${BRANCH};protocol=https"
+SRCREV = "268df1d862bc564458aee43f8ec9e71d7ec794bc"
 
-PV = "v2.3+renesas+git${SRCPV}"
-
-SRC_URI_append = " \
-   file://0001-Revert-rcar_gen3-plat-Delete-FDT-function-calls.patch \
-   file://0002-rcar_gen3-plat-Fix-DRAM-size-judgment-by-PRR-registe.patch \
-   file://0003-rcar_gen3-plat-Factor-out-DT-memory-node-generation.patch \
-   file://0004-rcar_gen3-plat-Generate-two-memory-nodes-for-larger-.patch \
-"
+PV = "v2.5+renesas+git${SRCPV}"
 
 COMPATIBLE_MACHINE = "(salvator-x|ulcb|ebisu|draak)"
 PLATFORM = "rcar"
 ATFW_OPT_LOSSY = "${@oe.utils.conditional("USE_MULTIMEDIA", "1", "RCAR_LOSSY_ENABLE=1", "", d)}"
 ATFW_OPT_r8a7795 = "LSI=H3 RCAR_DRAM_SPLIT=1 RCAR_DRAM_LPDDR4_MEMCONF=0 ${ATFW_OPT_LOSSY}"
-ATFW_OPT_r8a7796 = "LSI=M3 RCAR_DRAM_SPLIT=2 ${ATFW_OPT_LOSSY}"
+ATFW_OPT_r8a7796 = "LSI=M3 RCAR_DRAM_SPLIT=2  ${ATFW_OPT_LOSSY}"
 ATFW_OPT_r8a77965 = "LSI=M3N ${ATFW_OPT_LOSSY}"
 ATFW_OPT_r8a77990 = "LSI=E3 RCAR_SA0_SIZE=0 RCAR_AVS_SETTING_ENABLE=0 RCAR_DRAM_DDR3L_MEMCONF=0 RCAR_DRAM_DDR3L_MEMDUAL=0"
 ATFW_OPT_r8a77995 = "LSI=D3 RCAR_SA0_SIZE=0 RCAR_AVS_SETTING_ENABLE=0 PMIC_ROHM_BD9571=0 RCAR_SYSTEM_SUSPEND=0 DEBUG=0"
@@ -125,3 +148,18 @@ do_ipl_opt_deploy[dirs] = "${B}"
 
 addtask deploy before do_build after do_compile
 addtask extra_ipl_opt after do_configure before do_compile
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+meta-renesas/arm-trusted-firmware_git.bb at Renesas-Yocto-v5.9-patched · xen-troops/meta-renesas
