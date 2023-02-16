@@ -1,33 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Codespaces
-Marketplace
-Explore
- 
-@DKlimenko 
-xen-troops
-/
-meta-renesas
-Public
-Fork your own copy of xen-troops/meta-renesas
-Code
-Pull requests
-Actions
-Projects
-Security
-Insights
-meta-renesas/meta-rcar-gen3/recipes-bsp/arm-trusted-firmware/arm-trusted-firmware_git.bb
-@hauconglevo
-hauconglevo rcar-gen3: arm-trusted-firmware: Update to latest revision
-…
-Latest commit 9d190d4 on Aug 4, 2022
- History
- 8 contributors
-@khangnguyenrvc@ygohda@TinTranTrung@thuyminhtran@thaophuongnguyen@hauconglevo@DuyDang007@TakamitsuHonda
-120 lines (94 sloc)  4.99 KB
-
 DESCRIPTION = "ARM Trusted Firmware"
 
 LICENSE = "BSD"
